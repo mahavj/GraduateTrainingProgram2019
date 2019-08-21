@@ -1,0 +1,93 @@
+
+1.select sum(weight) as weight_of_corn from picked where plantFK =(SELECT plantid from plant where name='corn');
++--------------------+
+| weight_of_corn     |
++--------------------+
+| 35.079999923706055 |
++--------------------+
+1 row in set (0.00 sec)
+
+2.sql> UPDATE  picked SET locationFK=(select locationid from location where name='north')  where plantFK in (select plantid from plant where name='Tomato') AND gardenerFK in (select gardenerid from gardener where name='Erin');
+Query OK, 2 rows affected (0.19 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+3.a.ALTER TABLE gardener ADD COLUMN Exper int(30);
+Query OK, 4 rows affected (0.25 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+b.mysql> ALTER TABLE gardener MODIFY Exper varchar(30);
+Query OK, 4 rows affected (0.26 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+4.select name from plant where plantid in (select plantFK from planted where seeds<20 AND date1='2012-04-14');
++--------+
+| name   |
++--------+
+| Carrot |
++--------+
+1 row in set (0.00 sec)
+
+5. select sum(sunlight),sum(water) from plant where name LIKE 'C%' OR 'R%' ;
++-------------------+--------------------+
+| sum(sunlight)     | sum(water)         |
++-------------------+--------------------+
+| 0.699999988079071 | 1.5799999833106995 |
++-------------------+--------------------+
+1 row in set, 1 warning (0.00 sec)
+
+6.  
+mysql> select p.name,sum(seeds) from plant p JOIN planted pl ON p.plantid=pl.plantFK GROUP BY p.plantid ORDER BY p.name desc;
++---------+------------+
+| name    | sum(seeds) |
++---------+------------+
+| Tomato  |         38 |
+| Radish  |         30 |
+| Lettuce |         30 |
+| Corn    |         32 |
+| Carrot  |         42 |
+| Beet    |         36 |
++---------+------------+
+6 rows in set (0.00 sec)
+
+7.mysql> select p.name,pi.amount/pl.seeds as average from plant p join planted pl on p.plantid=pl.plantFK join picked pi on p.plantid=pi.plantFK group by p.name;
++--------+---------+
+| name   | average |
++--------+---------+
+| Carrot |  1.0000 |
+| Corn   |  2.6000 |
+| Radish |  0.7667 |
+| Tomato |  0.3947 |
++--------+---------+
+4 rows in set (0.00 sec)
+
+8.
+mysql> select distinct g.name,pp.name,date1,amount from picked p join gardener g on p.gardenerFK=g.gardenerid join plant pp on p.plantFK=pp.plantid where g.name='Tim' and locationFK=0 order by pp.name desc;
++------+--------+------------+--------+
+| name | name   | date1      | amount |
++------+--------+------------+--------+
+| Tim  | Radish | 2012-07-16 |     23 |
+| Tim  | Carrot | 2012-08-18 |     28 |
++------+--------+------------+--------+
+2 rows in set (0.00 sec)
+
+9.select name from gardener where gardenerid in (SELECT pt.gardenerFK from planted pt,picked pk where pt.gardenerFK=pk.gardenerFK AND pt.locationFK=pk.locationFK);
++--------+
+| name   |
++--------+
+| Father |
+| Tim    |
+| Erin   |
++--------+
+3 rows in set (0.00 sec)
+
+10. CREATE VIEW plant_VIEW AS select name,plantid from plant where plantid in (select distinct plantFK from picked where locationFK  in (Select locationid from location where name <>'West') AND MONTH(date1)=08) ;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select * from plant_VIEW;
++--------+---------+
+| name   | plantid |
++--------+---------+
+| Carrot |       0 |
+| Corn   |       2 |
+| Tomato |       3 |
++--------+---------+
+3 rows in set (0.01 sec)

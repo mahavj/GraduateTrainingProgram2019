@@ -1,0 +1,201 @@
+﻿1.
+
+'''Write a program that examines three variables—x, y, and z— and prints the largest odd number among them.
+If none of them are odd, it should print a message to that effect.'''
+
+
+num1=int(input("enter num1:"))
+num2=int(input("enter num2:"))
+num3=int(input("enter num3:"))
+if num1%2==0 and num2%2==0 and num3%2==0:
+     print("none of them is odd")
+elif  num1%2!=0 and num1>num2 and num1>num3:
+    print("the largest odd is ", (num1))
+elif num2%2!=0 and num2>num1 and num2>num3:
+    print("the largest odd is", (num2))
+else:
+    print("the largest odd is",(num3))
+
+
+2.
+
+'''Python provides a built-in function called len that returns the length of a string,
+so the value of len('Cigna') is 5. Write a function named right_justify that takes a string named s
+as a parameter and prints the string with enough leading spaces so that the last letter of the string is in
+column 70 of the display.
+right_justify('Cigna')
+'''
+
+def right_justify(s):
+  le = len(s)
+  for i in range(1, 71 - le):
+    print(end=' ')
+  print(s)
+
+s=input("enter the string:")
+right_justify(s)
+
+
+
+3.
+
+'''Write a program that asks the user to input 10 integers, and then prints the largest odd number that was entered.
+If no odd number was entered, it should print a message to that effect.'''
+max=0
+for i in range(1,11):
+  num=int(input())
+  if num%2!=0 and num>max:
+   max=num
+if max==0:
+  print('no odd')
+else:
+    print(max)
+
+4.
+
+#sub ques1:
+
+#volume of a sphere with radius r is 4/3pr3
+import math
+radius=int(input("enter the radius:"))
+volume=(4/3)*math.pi*pow(radius,3)
+print("The volume of the sphere is ",volume)
+
+#'''Suppose the cover price of a book is Rs.24.95, but bookstores get a 40% discount. Shipping costs
+#Rs.3 for the first copy and 0.75p for each additional copy. What is the total wholesale cost for
+#60 copies? '''
+
+#sub ques2:
+
+price=float(input("cover price of the book:"))
+copy=int(input("enter the number of copies needed:"))
+price_book = 60 * price
+discounted_price=(price_book*(40/100))
+print(discounted_price)
+total_price = price_book - discounted_price
+if(copy==0):
+    print("pls!!order some number of copies.")
+else:
+    cost=0
+    cost=total_price+3
+    for i in range(1,copy):
+      cost=cost+0.75
+print(cost)
+
+#sub ques 3:
+ #If I leave my house at 6:52 am and run 1 mile at an easy pace (8:15 per mile), then 3 miles at
+#tempo (7:12 per mile) and 1 mile at easy pace again, what time do I get home for breakfast?'''
+
+
+
+5.
+
+'''Write a program that asks the user to enter an integer and prints two integers, root and pwr,
+such that 0 < pwr < 6 and root**pwr is equal to the integer entered by the user.
+If no such pair of integers exists, it should print a message to that effect.'''
+n=False
+num=int(input('enter the num:'))
+for i in range(1,20):
+    for j in range(1,6):
+        if num==pow(i,j):
+            print(i,j)
+            n=True
+            break
+    if n==True:
+         break
+
+6.
+#Let s be a string that contains a sequence of decimal numbers separated by commas,
+#e.g., s = '1.23,2.4,3.123'. Write a program that prints the sum of the numbers in s.
+
+s='1.23,2.4,3.123'
+v=s.split(',')
+sum=0
+for i in v:
+  sum=sum+float(i)
+print(sum)
+
+
+7.
+
+'''Write a function isIn() that accepts two strings as arguments and returns True if either string occurs anywhere in
+the other, and False otherwise.
+Hint: you might want to use the built-in str operation in.'''
+
+def isIn(st1,st2):
+    if st1 in st2 or st2 in st1:
+        return True
+    else:
+        return False
+a=input()
+b=input()
+print(isIn(a,b))
+
+8.
+
+'''def getRatios(vect1, vect2):
+"""Assumes: vect1 and vect2 are lists of equal length of numbers
+Returns: a list containing the meaningful values of
+vect1[i]/vect2[i]"""'''
+
+
+def getRatios(vect1, vect2):
+    li = []
+    for i in range(0, len(vect1)):
+
+        try:
+            d = vect1[i] / vect2[i]
+            #print(d)
+            li.append(d)
+        except:
+            li.append('invalid')
+    print(li)
+
+
+l1 = [1, 4, 6, 4]
+l2 = [1, 0, 0, 4]
+getRatios(l1, l2)
+
+9.
+
+'''Assume that we execute the following assignment statements: width = 17 height = 12.0 delimiter = '.' For each of the following expressions, write the value of the expression and the type (of the value of the expression).
+ width/2
+width/2.0
+ height/3
+ 1 + 2 * 5
+ delimiter * 5
+Use the Python interpreter to check your answers'''
+
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 19:29:22) [MSC v.1916 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> width=17
+>>> w=width/2
+>>> w
+8.5
+>>> type(w)
+<class 'float'>
+>>> w1=width/2.0
+>>> w1
+8.5
+>>> type(w1)
+<class 'float'>
+>>> height=12.0
+>>> h=height/3
+>>> type(h)
+<class 'float'>
+>>> exp=1+2*5
+>>> exp
+11
+>>> type(exp)
+<class 'int'>
+>>> delimiter='.'
+>>> d=delimiter*5
+>>> d
+'.....'
+>>> type(d)
+<class 'str'>
+>>>
+
+
+10.
+

@@ -1,0 +1,181 @@
+1.
+'''The greatest common divisor (GCD) of a and b is the largest number that
+ divides both of them with no remainder.
+One way to find the GCD of two numbers is based on the observation
+that if r is the remainder when a is divided by b,
+then gcd(a, b) = gcd(b, r). As a base case, we can use gcd(a, 0) = a.
+Write a function called gcd that takes parameters a and b and returns
+their greatest common divisor.'''
+
+def gcd(a,b):
+    if a==0 or b==0:
+       return (max(a,b))
+    else:
+        c=a%b
+        return  gcd(b,c)
+
+num1=int(input("enter the 1st number:"))
+num2=int(input("enter the 2nd number"))
+print(gcd(num1,num2))
+
+
+2.
+
+'''
+A number, a, is a power of b if it is divisible by b and a/b is a power of b.
+Write a function called is_power that takes parameters a and b and returns True
+if a is a power of b.
+Note: you will have to think about the base case.
+
+def is_power(a,b):
+   for i in range(1,int(a/b)+1):
+     #  print(int(a)==pow(int(b),i))
+       if  a is pow(b,i):
+           print(a==pow(b,i))
+           return True
+       else:
+        return False
+
+if is_power(4,2)==True:
+    print('yes')
+else:
+    print('no')'''
+
+def is_power(a,b):
+   if a == b:
+     return True
+   elif a%b == 0:
+      return is_power(a/b,b)
+   else:
+       return False
+num1=int(input())
+num2=int(input())
+if is_power(num1,num2)==True:
+    print("b is a power")
+else:
+    print("not a power")
+
+
+
+3.def factR(n):
+    if n==0 or n==1:
+        return 1
+    else:
+        return n*factR(n-1)
+
+
+def factI(n):
+    fact=1
+    if n==0 or n==1:
+        print("The factorial is",1)
+    else:
+        for i in range(2,n+1):
+            fact=fact*i
+        print('The factorial is',fact)
+
+num=int(input())
+factI(num)
+f=factR(num)
+print('The factorial is ',f)
+
+4.
+#Write a program that computes the decimal equivalent of the binary number 10011?
+
+bi=input('enter the number:')
+deci=0
+k=0
+for j in range(len(bi)-1,-1,-1):
+    deci=deci+(int(bi[j])*(2**k))
+    k=k+1
+print(deci)
+
+5.
+def sumDigits(s):
+    sum=0
+    count=0
+
+    for i in s:
+       if i.isdigit()==False:
+           count=count+1
+    try:
+         if count!=len(s):
+           for i in s:
+            if i.isdigit() ==True:
+             sum=sum+int(i)
+           print(sum)
+         else:
+            raise Exception
+    except Exception:
+        print('not a valid input')
+
+s1=input("enter the string:")
+sumDigits(s1)
+
+6.
+def FindanEven(l):
+       v=0
+       try:
+         for i in l:
+             if i%2==0:
+               print(i)
+             raise Exception()
+       except Exception:
+                print('no even numbers')
+li=[1,5]
+FindanEven(li)
+
+7.
+
+def isPalindrome(s):
+    s1=''
+    for i in s:
+        s1=i+s1
+    if s1==s:
+        return True
+    else:
+        return False
+
+
+
+def testIsPalindrome(s):
+    if isPalindrome(s)==True:
+          print("it is palindrome")
+    else:
+         print("it is not palindrome")
+st=input("enter the string:")
+testIsPalindrome(st)
+
+8.
+
+'''The built-in function eval takes a string and evaluates it using the Python interpreter. For example:
+eval('1 + 2 * 3')
+7
+import math
+eval('math.sqrt(5)')
+2.2360679774997898
+eval('type(math.pi)')
+<type 'float'>
+Write a function called eval_loop that iteratively prompts the user, takes the resulting
+input and evaluates it using eval, and prints the result.
+It should continue until the user enters 'done', and then return the value of the last expression it evaluated.'''
+
+def eval_loop():
+  while(True):
+     user_input = input('enter the string to evaluate:')
+     if user_input=='done':
+         print(k)
+         break
+     else:
+       k=eval(user_input)
+       print(k)
+      #print(user_input)
+
+eval_loop()
+
+
+9.
+
+
+
+
+

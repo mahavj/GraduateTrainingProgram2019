@@ -1,0 +1,179 @@
+#1
+
+import re
+s='10101010100111101'
+r='101'
+#l=re.findall(r,s)
+#print(len(l))
+count=0                                                                                        
+for i in range(0,len(s)):                                                                      
+    if s[i:i+3]==r:                                                                            
+        count=count+1                                                                          
+print(count)      
+
+
+#2.diagonal
+
+
+l=[[3,8,7],[8,7,9],[1,6,0]]
+sum1=0
+sum2=0
+for i in range(0,len(l)):
+  sum1=sum1+l[i][i]
+print(sum1)
+a=len(l)
+for i in range(0,len(l)):
+    sum2=sum2+l[i][a-1]
+    a=a-1
+print(sum2)
+s=sum1+sum2
+print('total of both diagonal:'+str(s))
+
+#3.Transpose a matrix
+
+l=[[3,8,7],[8,7,9],[1,6,0]]
+
+for i in range(0,len(l)):
+    for j in range(len(l)):
+        print(l[j][i],end=' ')
+    print(' ')
+
+
+#4.The string abcabcabc........ goes till 1111 . print the number of Occurrence of 'ca'      
+    
+import re                                                                                      
+s='abcabcabcabca1111'                                                                          
+# l=re.findall('ca',s)                                                                         
+# print(len(l))                                                                                
+count=0                                                                                        
+r='ca'                                                                                         
+for i in range(0,len(s)):                                                                      
+    if s[i:i+2]==r:                                                                            
+        count=count+1                                                                          
+print(count)                                                                                   
+                                                                                               
+
+#5.Convert the string as below.
+
+#input : abcDEwQ
+#output: ABCdeWq
+'''
+input_string=raw_input('enter the string to be converted:')
+output_string=''
+for i in input_string:
+    if i.isupper()==True:
+        output_string=output_string+i.lower()
+    elif i.islower()==True:
+        output_string=output_string+i.upper()
+print(output_string)
+'''
+
+#6.
+
+s='abcdcdefabcdef'
+s1=''
+c=0
+max=0
+for i in range(0,len(s)-1):
+    if ord(s[i])+1==ord(s[i+1]):
+        # s1=s1+s[i]
+        c=c+1
+    else:
+        # s1=s1+s[i]
+        if c>max:
+            max=c
+        c=1
+if c>max:
+    max=c
+print(max)
+
+
+#7.Find the sum of multiples of 3 and 5 between 1 to 1000
+'''
+sum_of_mul=0
+for i in range(1,1001):
+    if (i%3==0 and i%5==0):
+        sum_of_mul=sum_of_mul+i
+print(sum_of_mul)
+'''
+#8
+# Display the phone number as below and also print the last 4 digit in ascending order
+# input : 9993452133
+# output :xxx-xxx-xxxx
+
+input_num=raw_input('enter the number:')
+st=''
+for i in input_num:
+    st=st+'x'
+print(st)
+# st1='-'.join(st)
+# print(st1)
+st2=''
+st2=st[1:4]+'-'+st[4:7]+'-'+st[6:]
+print(st2)
+st3=input_num[-1:-5:-1]
+st4=sorted(st3)
+print(''.join(st4))
+
+
+
+#9.
+'''
+import re
+st="There are 26 alphabets in English out of which 5 are vowels and 21 are consonants"
+sum=0
+l=re.findall(r'[0-9]+',st)
+for i in l:
+    sum=sum+int(i)
+print(sum)
+'''
+
+#10.check if Anagram or not
+'''
+str1=raw_input('enter the string1:')
+str2=raw_input('enter the string2:')
+flag=1
+if len(str1)!=len(str2):
+    print('Not an anagram')
+else:
+    for i in str1:
+        if i not in str2:
+            flag=0
+            break
+        else:
+            flag=1
+if flag==1:
+    print('yes it is anagram')
+else:
+    print('not an anagram')
+
+'''
+#11.cubes dictionary
+'''
+n=raw_input('enter the number:')
+cubes_dictionary={}
+
+for i in range(1,int(n)+1):
+    cubes_dictionary[i]=i*i*i
+print(cubes_dictionary)
+'''
+#12.Armstrong number
+# a: 153
+# b:1634
+# c: 876
+'''
+import math
+numb=876
+le=len(str(numb))
+sum=0
+for i in str(numb):
+    sum=sum+pow(int(i),le)
+print(sum)
+if sum==numb:
+    print('yes  it is armstrong')
+else:
+    print('not an armstrong number')'''
+
+
+
+

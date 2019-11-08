@@ -1,0 +1,124 @@
+#1.
+
+stu={}
+subdict={}
+for i in range(0,3):
+    roll_id=raw_input(" roll no:")
+    name=raw_input("name:")
+    class_name=raw_input("class name:")
+    m=[]
+    for i in range(5):
+        marks=raw_input(" marks:")
+        m.append(marks)
+    mark=m
+    subdict['name']=name
+    subdict['class']=class_name
+    subdict['marks']=mark
+    stu[roll_id]=subdict
+print(stu)
+
+#2.
+student_detail={}
+mark=[]
+for i in range(3):
+    mark1=raw_input()
+    mark.append(mark1)
+student_detail['student1']=mark
+mark2=[]
+for i in range(3):
+    mark1=raw_input()
+    mark2.append(mark1)
+student_detail['student2']=mark2
+print(student_detail)
+
+sum1=student_detail.get('student1')
+s1=0
+for i in sum1:
+    s1=s1+int(i)
+print(s1)
+print('average of stu1:'+str(s1/3))
+sum2=student_detail.get('student2')
+s2=0
+for i in sum2:
+    s2=s2+int(i)
+print(s2)
+print('average of stu1:'+str(s2/3))
+
+#3.
+
+inventory = {'gold': 500,
+             'pouch': ['flint', 'twine', 'gemstone'],
+             'backpack': ['xylophone', 'dagger', 'bedroll', 'bread loaf']}
+
+inventory['pocket']=['seashell', 'strange berry', 'lint']
+print(inventory)
+l=(inventory.get('backpack'))
+l1=sorted(l)
+inventory('backpack')=l1
+#Then .remove('dagger') from the list of items stored under the 'backpack' key.
+inventory.get('backpack').remove('dagger')
+print(inventory)
+inventory['gold']=int(inventory.get('gold'))+50
+print(inventory)
+
+
+#4.
+f=open(('marks1.txt'),'w')
+f1=f.writelines(['science = 50\n','maths = 90\n','english = 85\n','tamil = 92\n'])
+print(f1)
+import re
+f=open('marks.txt','r')
+f1=f.read()
+s=re.findall(r'[0-9]+',f1)
+sum1=0
+for i in s:
+    sum1=sum1+int(i)
+print(sum1)
+
+#5.
+def concatstring(str1,str2):
+    return str1+str2
+
+string1=raw_input('str1:')
+string2=raw_input('str2')
+print(concatstring(string1,string2))
+
+#6.sumdigits
+
+input_num=raw_input('enter')
+s=str(input_num)
+sum=0
+for i in s:
+    sum=sum+int(i)
+print('sum is'+str(sum))
+
+#7. write a python script to make a simple calculator that can add, subtract, multiply and divide using functions
+#
+#    a) have four functions with two arguments
+#
+#    b) get the values from user
+#
+#    c) Use try and except
+
+class calculator():
+ def add(self,a,b):
+    return int(a)+int(b)
+ def sub(self,a,b):
+    return int(a)-int(b)
+ def mul(self,a,b):
+
+    return int(a)*int(b)
+ def div(self,a,b):
+     try:
+        return int(a)/int(b)
+     except Exception:
+         return 'error'
+
+num1=raw_input('enter number1:')
+
+num2=raw_input('enter number2')
+c=calculator()
+print(c.add(num1,num2))
+print(c.sub(num1,num2))
+print(c.mul(num1,num2))
+print(c.div(num1,num2))

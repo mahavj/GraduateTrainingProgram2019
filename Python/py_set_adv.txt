@@ -1,0 +1,87 @@
+1.
+begin=int(input("start:"))
+end=int(input("end:"))
+
+div_by_7=[i for i in range(begin,end) if i%7==0 and i%5!=0]
+print(div_by_7)
+
+2.
+recursive: 
+
+def factorial(num):
+    if num==0 or num==1:
+        return 1
+    else:
+        return num*factorial(num-1)
+user_input=int(input('enter the number:'))
+print(factorial(user_input))
+
+iterative:
+
+n=int(input("enter the number to find factorial:"))
+fact=1
+if n==0 or n==1:
+    print('factorial is 1')
+else:
+ for i in range(1,n+1):
+    fact=fact*i
+ print(fact)
+
+3.
+
+range_to_print=int(input('enter:'))
+dicti={i:i*i for i in range(1,range_to_print+1)}
+print(dicti)
+
+range_to_print=int(input('enter:'))
+dicti={}
+for i in range(1,range_to_print+1):
+    dicti[i]=i*i
+print(dicti)
+
+4.
+number_input=input('enter:')       
+sp=number_input.split(',')         
+print(list(sp))                    
+print(tuple(sp))                   
+
+5.
+
+class string_class:
+    def getString(self):
+        user_input=input('enter the string:')
+        return user_input
+    def printString(self,user_inp):
+        print(user_inp.upper())
+
+sc=string_class()
+sc.printString(sc.getString())
+
+
+6.
+
+
+import math
+C=50
+H=30
+l=[]
+user_input=input('enter the values:')
+for D in user_input.split(','):
+   formula=round(math.sqrt((2*C*int(D))/H))
+   l.append(str(formula))
+print(','.join(l))
+
+
+7.
+
+user_input=input('enter:')
+l=user_input.split(',')
+li=[[i*j for j in range(0,int(l[1]))] for i in range(0,int(l[0]))]
+print(li,sep='\n')
+
+8.
+
+user_input=input('enter:')
+l=user_input.split(',')
+sort_input=sorted(l)
+print(','.join(sort_input))

@@ -1,0 +1,171 @@
+
+#
+# def getinput(**a):
+#     # print(arg1)
+#     for i,j in a.items():
+#         print(i,j)
+# getinput(hi='1',hello='2')
+
+
+#
+# def primenumbers(range1,range2):
+#     if range1<=2:
+#         print('not a prime number')
+#     else:
+#         for i in range(range1,range2+1):
+#             for j in range(2,i):
+#                 if i%j==0:
+#                   break
+#             else:
+#                print (i)
+#
+#
+#
+# primenumbers(3,10)
+
+
+
+# def checkprime(num):
+#     if num<2:
+#         print('not valid number')
+#     else:
+#         for i in range(2,num):
+#             if num%i==0:
+#                 print('num is not prime')
+#                 break
+#         else:
+#             print("num is prime ")
+#
+# checkprime(0)
+
+
+#conc count
+
+# s='aabbcccddd'
+# string=''
+# count=1
+# for i in range(0,len(s)-1):
+#     if s[i]==s[i+1]:
+#        count+=1
+#     else:
+#         string+=s[i]+str(count)
+#         count=1
+# string+=s[len(s)-1]+str(count)
+#
+# print(string)
+
+# from collections import Counter
+# s='aabbcccddd'
+# s1=''
+# l=dict(Counter(s))
+# print(l)
+# for i,j in l.items():
+#     s1=s1+i+str(j)
+# print(s1)
+
+
+#
+# def factorial(num):
+#     fact=1
+#     if num==0 or num==1:
+#         print(fact)
+#     else:
+#         for i in range(1,num+1):
+#             fact=fact*i
+#     return fact
+#
+# print(factorial(5))
+
+# def factorial_rec(num):
+#     if num==0 or num==1:
+#         return 1
+#     else:
+#         return num*factorial_rec(num-1)
+#
+# print(factorial_rec(5))
+
+# def fibo(num):
+#     a=0
+#     b=1
+#     print(a,b,end=' ')
+#     for i in range(2,num):
+#
+#         c=a+b
+#         a=b
+#         b=c
+#         if c<num:
+#          print(c,end=' ')
+# fibo(50)
+
+# def fibo(num):
+#     if num<=1:
+#         return num
+#     else:
+#         return fibo(num-1)+fibo(num-2)
+#
+# for i in range(10):
+#     print(fibo(i))
+
+# l=[i for i in range(10) if i%2==0 elif i%3==0]
+# print(l)
+#
+# a='abcdefpijkpz'
+# dict={}
+# l=[]
+# s=''
+# for i in range(0,len(a)-1):
+#     if ord(a[i])-ord(a[i+1])==-1:
+#         s=s+a[i]
+#     else:
+#         s=s+a[i]
+#         dict[s]=len(s)
+#         # l.append(s)
+#         s=''
+# s=s+a[len(a)-1]
+# dict[s] = len(s)
+# # l.append(s)
+# # print(l)
+# print(dict)
+# # print(max(dict.values()))
+# # print([x for x,j in dict.items() if j== min(dict.values()) ])
+
+# l=sorted( dict.items(),key=lambda dict:dict[1])
+# print(l)
+#
+# def print_tables(num,mul):
+#     for i in range(1,num+1):
+#         print("{} * {} = {}".format(i,mul,i*mul))
+#
+# print_tables(5,5)
+s='mahalakshmi'
+# s1=''
+# for i in set(s):
+#     s1=s1+str(i)+str(s.count(i))
+# print(s1)
+
+# c=1
+# d={}
+# for i in s:
+#     if i in d:
+#         d[i]+=1
+#     else:
+#         d[i]=1
+#
+# for i,j in d.items():
+#     print(str(i)+str(j),end='')
+
+
+import unittest
+
+
+def add(a, b):
+    return a + b
+class addition(unittest.TestCase):
+
+    def test1(self):
+        self.assertEqual(add(1,6),7)
+
+
+if __name__=='__main__':
+    unittest.main()
+
